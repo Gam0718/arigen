@@ -1,0 +1,496 @@
+!DOCTYPE html
+html lang=ko
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    title아리젠(ARIS) 조립PC 상세페이지 - 압도적인 성능과 디자인title
+    link rel=stylesheet as=style crossorigin href=httpscdn.jsdelivr.netghorioncactuspretendard@v1.3.9distwebstaticpretendard.min.css 
+    style
+         기본 스타일 및 재설정 
+        body { font-family 'Pretendard', sans-serif; line-height 1.7; color #333333;  텍스트 색상 어둡게 변경 
+            margin 0; padding 0; background-color #f5f5f5;  전체 배경색 밝은 회색으로 변경 
+        }
+        .container { max-width 960px; margin 0 auto; padding 25px; box-sizing border-box; }
+        section { padding 60px 30px; margin-bottom 40px; background-color #ffffff;  섹션 배경색 흰색으로 변경 
+            border-radius 12px; box-shadow 0 10px 30px rgba(0,0,0,0.1);  그림자 약하게 변경 
+            transition transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            position relative;
+            overflow hidden;
+        }
+        sectionhover { transform translateY(-5px); box-shadow 0 15px 40px rgba(0,0,0,0.2); }
+
+         섹션 구분선 
+        .section-divider { width 100%; height 5px; background linear-gradient(to right, #00c6ff, #0072ff); border none; margin 40px 0; box-shadow 0 0 15px rgba(0, 198, 255, 0.4);  그림자 약하게 변경 
+            border-radius 5px; }
+
+        h1, h2, h3 { text-align center; color #333333;  헤더 텍스트 색상 어둡게 변경 
+            margin-bottom 25px; line-height 1.3; font-weight 800;
+            text-shadow none;  텍스트 그림자 제거 
+        }
+        h1 { font-size 3.5em; color #0072ff;  H1 색상 변경 
+        }
+        h2 { font-size 2.8em; color #0072ff;  H2 색상 변경  }
+        h3 { font-size 2.1em; color #333333; margin-top 30px; }
+        p { font-size 1.2em; line-height 1.8; margin-bottom 18px; color #555555;  본문 텍스트 색상 변경  }
+        .highlight { color #ff6600;  하이라이트 색상 변경 (주황색 계열) 
+            font-weight bold; text-shadow none; }  텍스트 그림자 제거 
+        .review-quote { background-color #f0f0f0;  인용구 배경색 밝게 변경 
+            border-left 6px solid #007bff; padding 20px 30px; margin 30px 0; font-style italic; color #666666;  인용구 텍스트 색상 변경 
+            border-radius 8px; box-shadow 0 2px 8px rgba(0,0,0,0.1); }
+        .review-quote cite { display block; margin-top 12px; text-align right; color #888888; font-size 0.95em; font-style normal; }
+        .stars { color #FFD700; font-size 1.3em; margin-right 5px; }  별점 스타일 
+
+        .cta-button { display block; width 85%; max-width 450px; margin 50px auto 30px; padding 22px 40px;
+            background linear-gradient(135deg, #00c6ff, #0072ff);
+            color #ffffff; text-align center; text-decoration none; font-size 1.6em; font-weight 900;
+            border-radius 60px; transition all 0.3s ease-in-out; box-shadow 0 10px 25px rgba(0, 198, 255, 0.3);  그림자 약하게 변경 
+            border none; cursor pointer;
+            animation pulse 2s infinite;
+        }
+        .cta-buttonhover { transform translateY(-7px) scale(1.03); background linear-gradient(135deg, #00e0ff, #0088ff); box-shadow 0 15px 35px rgba(0, 198, 255, 0.5); }
+
+        @keyframes pulse {
+            0% { transform scale(1); box-shadow 0 10px 25px rgba(0, 198, 255, 0.3); }
+            50% { transform scale(1.02); box-shadow 0 12px 30px rgba(0, 198, 255, 0.5); }
+            100% { transform scale(1); box-shadow 0 10px 25px rgba(0, 198, 255, 0.3); }
+        }
+
+        .feature-grid, .problem-solution-grid, .performance-grid { display flex; flex-wrap wrap; justify-content center; gap 35px; margin-top 40px; }
+        .feature-item, .problem-solution-item, .performance-item { flex 1; min-width 300px; max-width 48%; padding 30px; background-color #f8f8f8;  아이템 배경색 밝게 변경 
+            border 1px solid #e0e0e0;  테두리 색상 밝게 변경 
+            border-radius 10px; text-align center; box-shadow 0 5px 15px rgba(0,0,0,0.08);  그림자 약하게 변경 
+            transition all 0.3s ease-in-out; }
+        .feature-itemhover, .problem-solution-itemhover, .performance-itemhover { transform translateY(-8px) scale(1.01); box-shadow 0 12px 30px rgba(0,0,0,0.15); }
+        .feature-item h3, .problem-solution-item h3, .performance-item h3 { font-size 1.7em; margin-top 0; margin-bottom 15px; font-weight 700; color #333333; }
+        .icon { display block; font-size 3.5em; margin-bottom 20px; color #0072ff;  아이콘 색상 변경 
+            text-shadow none; }  텍스트 그림자 제거 
+        .problem-icon { color #ff4500; }  문제 아이콘 색상 변경 
+        .solution-icon { color #00cc66; }  해결 아이콘 색상 변경 
+        .spec-table { width 100%; border-collapse collapse; margin-top 40px; font-size 1.1em; border 1px solid #e0e0e0; border-radius 8px; overflow hidden; box-shadow 0 5px 15px rgba(0,0,0,0.08); }
+        .spec-table th, .spec-table td { border 1px solid #e0e0e0; padding 15px 20px; text-align left; color #555555; }
+        .spec-table th { background-color #f0f0f0; color #333333; font-weight bold; text-transform uppercase; }
+        .spec-table trnth-child(even) { background-color #f8f8f8;  테이블 홀수짝수 행 배경색 변경  }
+        .spec-table trhover { background-color #e8e8e8; transition background-color 0.2s ease; }
+
+         특정 섹션 배경색 및 효과 
+        #hero-section { background linear-gradient(to bottom, #f5f5f5, #e0e0e0); border-bottom 5px solid #0072ff; box-shadow 0 10px 30px rgba(0,0,0,0.15); }
+        #hero-section h1 { color #0072ff; }  H1 색상 유지 
+        #hero-section p { color #555555; }  P 색상 유지 
+
+
+        #cta-section { background linear-gradient(to right, #0072ff, #00c6ff); box-shadow 0 10px 30px rgba(0, 114, 255, 0.3); }
+        #cta-section h2, #cta-section p { color #ffffff; text-shadow 0 0 8px rgba(255,255,255,0.3); }
+        #avoid-failure-section { background linear-gradient(to right, #7b68ee, #4169e1);  보라색 계열 유지, 조금 더 밝고 선명하게 
+        box-shadow 0 10px 30px rgba(0,0,0,0.2); }
+        #avoid-failure-section h2, #avoid-failure-section p, #avoid-failure-section li, #avoid-failure-section .icon { color #ffffff; text-shadow none; }
+        #avoid-failure-section .highlight, #avoid-failure-section .problem-icon { color #ff6600;  하이라이트 색상 통일 
+        }
+
+         포토후기 이벤트 섹션 스타일 
+        .photo-review-event { background-color #ffffff;  배경색 변경 
+            text-align center; padding 60px 30px; position relative; }
+        .photo-review-eventbefore { content ''; position absolute; top 0; left 0; width 100%; height 100%;
+            background url('dataimagesvg+xml;utf8,svg xmlns=httpwww.w3.org2000svg width=100 height=100 viewBox=0 0 100 100circle cx=50 cy=50 r=1 fill=rgba(0,114,255,0.05)circle cx=20 cy=80 r=1 fill=rgba(0,114,255,0.05)circle cx=80 cy=20 r=1 fill=rgba(0,114,255,0.05)svg');  배경 패턴 색상 변경 
+            background-size 50px; opacity 0.2; pointer-events none; }
+        .photo-review-event h2 { color #0072ff; text-shadow none; margin-bottom 40px; }
+        .photo-review-event .tablet-image { max-width 400px; width 80%; border-radius 10px; box-shadow 0 10px 25px rgba(0,0,0,0.2); margin-bottom 40px; border 3px solid #0072ff;
+        }
+        .participation-guide { text-align left; max-width 600px; margin 0 auto 30px; background-color #f8f8f8;  배경색 변경 
+        padding 25px; border-radius 10px; box-shadow 0 5px 15px rgba(0,0,0,0.1); }
+        .participation-guide h3 { text-align center; color #0072ff; font-size 1.8em; margin-bottom 20px; }
+        .participation-guide p { color #555555; margin-bottom 10px; }
+        .participation-guide ul { list-style none; padding-left 0; margin-top 15px; }
+        .participation-guide ul li { color #666666; margin-bottom 8px; position relative; padding-left 25px; }
+        .participation-guide ul libefore { content '✓'; color #00cc66; position absolute; left 0; font-weight bold; }
+        .participation-guide small { display block; text-align center; color #888888; font-size 0.85em; margin-top 20px; }
+
+         증정품 섹션 
+        .giveaway-items { display flex; flex-wrap wrap; justify-content center; gap 30px; margin-top 50px; }
+        .giveaway-item { background-color #f8f8f8;  배경색 변경 
+        border-radius 10px; padding 20px; text-align center; box-shadow 0 5px 15px rgba(0,0,0,0.08); width 200px; position relative; overflow hidden;
+            border 1px solid #e0e0e0; }
+        .giveaway-item img { max-width 100%; height auto; margin-bottom 15px; border-radius 5px; }
+        .giveaway-item p { font-size 1em; color #555555; margin-bottom 0; }
+        .giveaway-item .choose-one-tag { position absolute; top 10px; right 10px; background-color #e74c3c; color #fff; font-size 0.85em; font-weight bold; padding 5px 10px; border-radius 5px; transform rotate(5deg); box-shadow 0 2px 5px rgba(0,0,0,0.2); }
+
+         필독 섹션 
+        .must-read-section { background linear-gradient(to right, #7b68ee, #4169e1); padding 70px 30px; text-align center; box-shadow 0 10px 30px rgba(0,0,0,0.2); }
+        .must-read-section h2 { font-size 3em; color #ff6600;  하이라이트 색상 통일 
+            text-shadow none; margin-bottom 20px; }
+        .must-read-section h3 { font-size 2.5em; color #ffffff; text-shadow none; margin-bottom 30px; }
+        .must-read-section p { font-size 1.3em; color #ffffff; line-height 1.8; max-width 700px; margin 0 auto; }
+        .must-read-section small { display block; color #e0e0e0; font-size 0.9em; margin-top 20px; }
+
+         AS 섹션 
+        .warranty-section .warranty-items { display flex; flex-wrap wrap; justify-content center; gap 30px; margin-top 40px;}
+        .warranty-item { background-color #f8f8f8;  배경색 변경 
+        border-radius 10px; padding 25px; text-align center; box-shadow 0 5px 15px rgba(0,0,0,0.08); width 250px;
+            border 1px solid #e0e0e0; }
+        .warranty-item h3 { font-size 1.8em; margin-bottom 15px; color #0072ff; }
+        .warranty-item .icon { font-size 4em; margin-bottom 15px; color #0072ff; }
+        .warranty-item p { font-size 1.1em; color #555555; }
+        .contact-info { margin-top 30px; text-align center; }
+        .contact-info p { font-size 1.2em; margin-bottom 10px; color #555555; }
+        .contact-info a { color #0072ff; text-decoration none; font-weight bold; }
+        .contact-info ahover { text-decoration underline; }
+
+
+         반응형 디자인 
+        @media (max-width 768px) {
+            h1 { font-size 2.5em; }
+            h2 { font-size 2em; }
+            h3 { font-size 1.6em; }
+            p { font-size 1.05em; }
+            .cta-button { font-size 1.3em; padding 16px 28px; }
+            .feature-item, .problem-solution-item, .performance-item { max-width 100%; min-width auto; }
+            section { padding 40px 15px; }
+            .container { padding 15px; }
+            .giveaway-item { width 150px; }
+            .must-read-section h2 { font-size 2.5em; }
+            .must-read-section h3 { font-size 2em; }
+            .performance-table th, .performance-table td { padding 10px 15px; font-size 1em; }
+            .warranty-item { width 100%; max-width 300px; }
+        }
+    style
+head
+body
+    div class=container
+
+        section id=hero-section
+            h1느리고 답답한 컴퓨터에 지치셨나요br이제 당신의 span class=highlight최고의 컴퓨팅 경험span이 시작됩니다!h1
+            p style=text-align center; font-size 1.3em;아리젠 조립 PC는 단순한 컴퓨터를 넘어, 당신의 일상에 span class=highlight속도span, span class=highlight아름다움span, 그리고 span class=highlight완벽한 만족span을 선사합니다.p
+            div style=text-align center; margin 30px 0;
+                img src=httpsvia.placeholder.com700x400dddddd333333text=ARIZEN+PC+Main+View alt=아리젠 조립PC 메인 이미지 style=max-width 100%; height auto; border-radius 8px; box-shadow 0 8px 25px rgba(0,0,0,0.1); border 2px solid #0072ff;
+            div
+            a href=#cta-section class=cta-button지금 바로 아리젠 PC 경험하기a
+        section
+
+        hr class=section-divider
+
+        section class=photo-review-event
+            h2🎉 포토후기 이벤트 🎉h2
+            img src=httpsvia.placeholder.com350x250dddddd333333text=Photo+Review+Event+Image alt=포토후기 이벤트 이미지 class=tablet-image
+            div class=participation-guide
+                h3✨ 참여 방법h3
+                p수령 후 카카오톡에서 span style=font-weight bold; color #00cc66;서민컴퓨터span 검색 후 포토후기 작성한 사진을 보내주시면 됩니다!p
+                ul
+                    li수령 후 3영업일 이내로 후기를 보내주셔야 합니다.li
+                    li이벤트 상품은 당사 사정에 따라 변경될 수 있습니다.li
+                ul
+                small 자세한 내용은 이벤트 페이지를 참조해 주세요.small
+            div
+
+            h2 style=margin-top 50px;🎁 증정품 목록 (택1) 🎁h2
+            div class=giveaway-items
+                div class=giveaway-item
+                    img src=httpsvia.placeholder.com150x100eeeeee333333text=LED+Speaker alt=LED 스피커
+                    pLED 스피커바p
+                    span class=choose-one-tag택1span
+                div
+                div class=giveaway-item
+                    img src=httpsvia.placeholder.com150x100eeeeee333333text=7.1+Headset alt=7.1 헤드셋
+                    p가상 7.1 헤드셋p
+                    span class=choose-one-tag택1span
+                div
+                div class=giveaway-item
+                    img src=httpsvia.placeholder.com150x100eeeeee333333text=Logitech+Mouse alt=로지텍 G102 마우스
+                    p로지텍 G102 마우스p
+                    span class=choose-one-tag택1span
+                div
+                div class=giveaway-item
+                    img src=httpsvia.placeholder.com150x100eeeeee333333text=SSD+256GB alt=SSD 256GB
+                    pSSD 256GB 추가 증정p
+                    span class=choose-one-tag택1span
+                div
+                div class=giveaway-item
+                    img src=httpsvia.placeholder.com150x100eeeeee333333text=Gaming+Keyboard alt=게이밍 키보드+마우스
+                    p화이트 게이밍 키보드 + 마우스p
+                    span class=choose-one-tag택1span
+                div
+            div
+        section
+
+        hr class=section-divider
+
+        section id=problem-section
+            h2🖥️ 당신이 겪는 컴퓨터 고민, 아리젠이 잘 알고 있습니다.h2
+            div class=problem-solution-grid
+                div class=problem-solution-item
+                    h3 class=problem-icon❌ 느리고 답답한 속도h3
+                    p오래된 컴퓨터는 부팅부터 프로그램 실행까지 끊임없이 당신의 소중한 시간을 낭비하게 합니다. 게임 중 잦은 렉과 멈춤은 스트레스만 가중시키죠.p
+                    blockquote class=review-quote
+                        span class=stars⭐⭐⭐⭐⭐span 10년 넘게 쓴 컴퓨터가 너무 너무 느려져서 완전히 망가지기 전에 깨끗하게 보내줘야겠다 생각하고... cite- 냥늉냥늉님cite
+                    blockquote
+                    p style=color #ff4500; font-weight bold;(내적 문제 시간 낭비, 좌절감)p
+                div
+                div class=problem-solution-item
+                    h3 class=problem-icon🤷‍♀️ 복잡하고 어려운 선택h3
+                    p조립PC는 너무 어려워, 뭘 사야 할지 모르겠어 수많은 부품과 복잡한 용어에 지쳐 결국 포기하셨나요 전문가의 도움 없이는 엄두도 못 냈던 과거는 이제 그만!p
+                    blockquote class=review-quote
+                        span class=stars⭐⭐⭐⭐⭐span 컴알못인데 정말 설치 간편하고 이뻐요. 저처럼 컴퓨터에 관해서 아무것도 모르시는 분들 그냥 이거 구매해서 쓰시면 될 것 같아요 ㅎㅎ cite- 신주님cite
+                    blockquote
+                    p style=color #ff4500; font-weight bold;(내적 문제 불안감, 막막함)p
+                div
+                div class=problem-solution-item
+                    h3 class=problem-icon😩 투박하고 못생긴 디자인h3
+                    p성능은 좋지만 책상 위에 올리기는 싫은 칙칙한 디자인. 당신의 소중한 공간을 해치는 컴퓨터가 아닌, 인테리어의 일부가 될 수 없을까요p
+                    blockquote class=review-quote
+                        span class=stars⭐⭐⭐⭐⭐span 책상 위에 올려두니 진짜 어항처럼 예쁘다는 말이 절로 나옵니다. cite- 박경아님cite
+                    blockquote
+                    p style=color #ff4500; font-weight bold;(외적 문제 미관상 불만)p
+                div
+            div
+        section
+
+        hr class=section-divider
+
+        section id=performance-section
+            h2⚡️ 압도적인 성능, 숫자로 증명합니다!h2
+            p style=text-align center; font-size 1.15em; margin-bottom 40px;아리젠 PC는 span class=highlight최신 부품span과 span class=highlight최적화된 세팅span으로 당신에게 최고의 퍼포먼스를 선사합니다.p
+            div class=performance-grid
+                div class=performance-item
+                    span class=icon🎮span
+                    h3인기 게임 평균 FPSh3
+                    table class=spec-table performance-table
+                        thead
+                            trth게임명thth평균 FPS (QHD)thtr
+                        thead
+                        tbody
+                            trtd리그 오브 레전드tdtd240+tdtr
+                            trtd오버워치 2tdtd180+tdtr
+                            trtd배틀그라운드tdtd120+tdtr
+                            trtdEA Sports FC 24tdtd144+tdtr
+                        tbody
+                    table
+                    small style=display block; margin-top 15px; color #555555;테스트 사양 및 환경에 따라 실제 FPS는 다를 수 있습니다.small
+                div
+                div class=performance-item
+                    span class=icon📊span
+                    h3벤치마크 스코어h3
+                    table class=spec-table performance-table
+                        thead
+                            trth테스트thth점수thtr
+                        thead
+                        tbody
+                            trtd3DMark Time Spytdtd11,000+tdtr
+                            trtdCinebench R23 (멀티코어)tdtd23,000+tdtr
+                            trtdPCMark 10tdtd7,500+tdtr
+                            trtdGeekbench 6 (싱글멀티)tdtd2,800  14,000tdtr
+                        tbody
+                    table
+                    small style=display block; margin-top 15px; color #555555;부품별 편차에 따라 점수는 상이할 수 있습니다.small
+                div
+                div class=performance-item
+                    span class=icon🚀span
+                    h3부팅 속도 및 반응성h3
+                    p초고속 NVMe SSD 탑재로 놀라운 부팅 속도와 애플리케이션 실행 속도를 경험하세요.p
+                    img src=httpsvia.placeholder.com300x180dddddd333333text=Fast+Boot+Animation alt=빠른 부팅 속도 시연 style=max-width 100%; border-radius 5px; margin-top 15px; box-shadow 0 5px 15px rgba(0,0,0,0.1);
+                div
+            div
+             p style=text-align center; margin-top 40px;span class=highlight더 자세한 성능 테스트 영상은span 아리젠 공식 유튜브 채널에서 확인하세요!p
+             div style=text-align center; margin-top 20px;
+                img src=httpsvia.placeholder.com600x350dddddd333333text=YouTube+Performance+Video+Thumbnail alt=유튜브 성능 영상 미리보기 style=max-width 100%; height auto; border-radius 8px; box-shadow 0 5px 15px rgba(0,0,0,0.1);
+            div
+        section
+
+        hr class=section-divider
+
+        section id=guide-section
+            h2🚀 수년간의 노하우, 아리젠이 당신의 길을 안내합니다.h2
+            p style=text-align center; font-size 1.15em; margin-bottom 40px;저희 아리젠은 복잡한 컴퓨터 구매 과정을 단순화하고, 고객님이 진정으로 원하는 가치를 제공하기 위해 끊임없이 노력합니다. span class=highlight수많은 고객들의 선택span이 아리젠의 신뢰를 증명합니다.p
+            div class=feature-grid
+                div class=feature-item style=border 1px dashed #0072ff;
+                    span class=icon🛒span
+                    h31. 원하는 사양 선택h3
+                    p고객님의 용도에 맞춰 최적화된 사양을 쉽고 간편하게 선택하세요.p
+                div
+                div class=feature-item style=border 1px dashed #0072ff;
+                    span class=icon📦span
+                    h32. 안전한 배송h3
+                    p이중 포장과 꼼꼼한 완충재로 당신의 PC가 안전하게 도착합니다.p
+                    blockquote class=review-quote
+                        span class=stars⭐⭐⭐⭐⭐span 포장은 이중으로 되어있고 안도 뽁뽁이로 꽉꽉 채워 주셔서 상품이 안전하고 빠르게 도착을 했네요. cite- 김민님cite
+                    blockquote
+                div
+                div class=feature-item style=border 1px dashed #0072ff;
+                    span class=icon🔌span
+                    h33. 쉬운 연결, 바로 사용!h3
+                    p복잡한 조립 없이, 선만 연결하면 바로 쾌적한 컴퓨팅 환경을 경험하세요.p
+                    blockquote class=review-quote
+                        span class=stars⭐⭐⭐⭐⭐span 선만 제자리에 연결하니 바로 작동이 되었어요. 정말 간단해서 좋았습니다. cite- 박현님cite
+                    blockquote
+                div
+            div
+            a href=#cta-section class=cta-button지금 바로 구매 계획 세우기a
+        section
+
+        hr class=section-divider
+
+        section class=must-read-section
+            h2🌟 필독!! 가장 중요!! 🌟h2
+            h3🔌 선만 꽂고 바로 사용!h3
+            div style=text-align center; margin-bottom 30px;
+                img src=httpsvia.placeholder.com600x3006a5acdfffffftext=Easy+Connection+Guide+Image alt=쉬운 연결 가이드 style=max-width 100%; border-radius 8px; box-shadow 0 5px 15px rgba(0,0,0,0.2);
+            div
+            p개봉 후 바로 사용이 가능합니다. 아리젠 PC는 복잡한 설치 과정 없이p
+            ul style=list-style none; padding 0; text-align center; margin-bottom 25px;
+                li style=margin-bottom 10px; font-size 1.1em;span class=icon style=color #00cc66; font-size 1.5em; margin-right 10px;✅span 10만원 상당의 정품 한글, 한컴오피스 span class=highlight style=color #ff6600;설치 완료!spanli
+                li style=margin-bottom 10px; font-size 1.1em;span class=icon style=color #00cc66; font-size 1.5em; margin-right 10px;✅span span class=highlight style=color #ff6600;Windows 11 정품 인증span까지 완벽하게!li
+                li style=margin-bottom 10px; font-size 1.1em;span class=icon style=color #00cc66; font-size 1.5em; margin-right 10px;✅span 모든 하드웨어 span class=highlight style=color #ff6600;최신 드라이버 설치 완료!spanli
+            ul
+            p직관적으로 쉽게 설치가 가능하며, 즉시 쾌적한 컴퓨팅 환경을 경험하세요.p
+            small정품 한글한컴오피스는 해당 소프트웨어의 라이센스이며 별도의 제품키는 제공되지 않습니다.small
+        section
+
+        hr class=section-divider
+
+        section id=warranty-section class=warranty-section
+            h2🛡️ 아리젠 PC, span class=highlight든든한 사후 지원span으로 안심하세요!h2
+            p style=text-align center; font-size 1.2em; margin-bottom 30px;아리젠은 고객님의 소중한 PC를 오랫동안 쾌적하게 사용하실 수 있도록 최선을 다합니다.p
+            div class=warranty-items
+                div class=warranty-item
+                    span class=icon✅span
+                    h33년 무상 ASh3
+                    p구매일로부터 3년간 무상으로 수리 서비스를 제공합니다.p
+                div
+                div class=warranty-item
+                    span class=icon🗓️span
+                    h37년 유상 ASh3
+                    p무상 기간 이후에도 7년간 합리적인 비용으로 수리 지원을 해드립니다.p
+                div
+                div class=warranty-item
+                    span class=icon📞span
+                    h3신속한 고객 지원h3
+                    p궁금한 점이나 문제가 발생하면 언제든 편하게 문의해주세요.p
+                div
+            div
+            div class=contact-info
+                h3궁금한 점이 있으신가요 언제든 문의해주세요!h3
+                p전화 a href=tel000-0000-0000000-0000-0000ap
+                p카카오톡 a href=httpspf.kakao.com_your_channel_id target=_blank아리젠 고객센터 (채널 추가)ap
+                p이메일 a href=mailtosupport@arispc.comsupport@arispc.comap
+            div
+        section
+
+        hr class=section-divider
+
+        section id=cta-section
+            h2⏳ 더 이상 망설이지 마세요. brspan class=highlight새로운 컴퓨팅 경험span이 당신을 기다립니다!h2
+            p style=text-align center; font-size 1.2em; margin-bottom 30px;당신의 소중한 시간과 에너지를 낭비하던 느린 PC는 이제 그만! 지금 바로 아리젠 PC와 함께 쾌적하고 아름다운 미래를 시작하세요.p
+            a href=# class=cta-button지금 아리젠 PC 구매하기a
+            p style=text-align center; font-size 0.95em; margin-top 20px;지금 구매하시면 특별 할인 혜택이 적용될 수 있습니다.p
+        section
+
+        hr class=section-divider
+
+        section id=success-section
+            h2✨ 아리젠과 함께 누릴 당신의 성공적인 미래h2
+            div class=problem-solution-grid
+                div class=problem-solution-item
+                    h3 class=solution-icon🎮 쾌적한 게이밍 환경h3
+                    p롤, 오버워치, 피파, 배그 등 인기 게임들을 렉 없이 부드럽게 즐길 수 있습니다. PC방 부럽지 않은 나만의 게임 환경!p
+                    blockquote class=review-quote
+                        span class=stars⭐⭐⭐⭐⭐span 피파 4 렉 없이 잘 작동되고요... 친구들도 다 어디서 샀냐고 해서 아리젠을 많이 추천했습니다. cite- 한민님cite
+                    blockquote
+                    div style=text-align center; margin-top 20px;
+                        img src=httpsvia.placeholder.com300x200eeeeee333333text=Gaming+Screenshot+Review+1 alt=게이밍 후기 스크린샷 1 style=max-width 100%; border-radius 5px; box-shadow 0 2px 5px rgba(0,0,0,0.1);
+                    div
+                div
+                div class=problem-solution-item
+                    h3 class=solution-icon🏠 아름다운 나만의 공간h3
+                    p어항 케이스의 영롱한 불빛과 깔끔한 디자인으로 당신의 방 분위기를 한층 업그레이드 시키고, 보는 즐거움까지 선사합니다.p
+                    blockquote class=review-quote
+                        span class=stars⭐⭐⭐⭐⭐span 책상 위에 올려두니 진짜 어항처럼 예쁘다는 말이 절로 나옵니다. cite- 박경아님cite
+                    blockquote
+                     div style=text-align center; margin-top 20px;
+                        img src=httpsvia.placeholder.com300x200eeeeee333333text=Design+Screenshot+Review+2 alt=디자인 후기 스크린샷 2 style=max-width 100%; border-radius 5px; box-shadow 0 2px 5px rgba(0,0,0,0.1);
+                    div
+                div
+                div class=problem-solution-item
+                    h3 class=solution-icon📈 효율적인 업무학습 환경h3
+                    p빠른 부팅 속도와 멀티태스킹 능력으로 작업 효율이 극대화됩니다. 더 이상 컴퓨터 때문에 스트레스받지 마세요.p
+                    blockquote class=review-quote
+                        span class=stars⭐⭐⭐⭐⭐span 회사 컴퓨터보다 훨씬 빠르고 쾌적한 속도에 감탄했습니다. 진작 바꿀 걸 후회되네요. cite- 최수님cite
+                    blockquote
+                     div style=text-align center; margin-top 20px;
+                        img src=httpsvia.placeholder.com300x200eeeeee333333text=Work+Screenshot+Review+3 alt=업무 후기 스크린샷 3 style=max-width 100%; border-radius 5px; box-shadow 0 2px 5px rgba(0,0,0,0.1);
+                    div
+                div
+            div
+        section
+
+        hr class=section-divider
+
+        section id=avoid-failure-section
+            h2💔 망설이면 후회합니다. br더 이상 span class=highlight컴퓨터 스트레스span에 시달리지 마세요!h2
+            p style=text-align center; font-size 1.2em; margin-bottom 30px; color #ffffff;지금 아리젠 PC를 선택하지 않는다면, 당신은 계속해서p
+            ul style=list-style none; padding 0; text-align center; margin-bottom 40px;
+                li style=margin-bottom 10px; font-size 1.1em;span class=icon style=color #ff6600;⏰span 답답한 느림 속에서 소중한 시간을 낭비하고li
+                li style=margin-bottom 10px; font-size 1.1em;span class=icon style=color #ff6600;😡span 게임 중 잦은 렉과 멈춤으로 스트레스를 받으며li
+                li style=margin-bottom 10px; font-size 1.1em;span class=icon style=color #ff6600;💸span 비효율적인 작업으로 잠재적인 손실을 경험할 수 있습니다.li
+            ul
+            p style=text-align center; font-size 1.1em; color #e0e0e0;아리젠은 당신의 컴퓨팅 경험을 혁신할 준비가 되어 있습니다. 더 이상 지체하지 마세요.p
+            a href=# class=cta-button style=background linear-gradient(135deg, #ff6600, #e65c00); box-shadow 0 10px 25px rgba(255, 102, 0, 0.4);지금 바로 후회 없는 선택하기a
+        section
+
+        hr class=section-divider
+
+        section id=specs-section
+            h2🔍 아리젠 PC, span class=highlight핵심 사양span을 확인하세요!h2
+            p style=text-align center; margin-bottom 30px; color #555555;강력한 성능을 뒷받침하는 아리젠 PC의 세부 사양입니다.p
+            table class=spec-table
+                thead
+                    tr
+                        th항목th
+                        th상세 사양th
+                    tr
+                thead
+                tbody
+                    tr
+                        tdCPUtd
+                        tdIntel Core i5-13600K (13세대)td
+                    tr
+                    tr
+                        td그래픽카드td
+                        tdNVIDIA GeForce RTX 4060 (8GB)td
+                    tr
+                    tr
+                        tdRAMtd
+                        tdDDR5 32GB (5600MHz)td
+                    tr
+                    tr
+                        tdSSDtd
+                        tdNVMe M.2 1TBtd
+                    tr
+                    tr
+                        td메인보드td
+                        tdB760M 칩셋td
+                    tr
+                    tr
+                        td케이스td
+                        td아리젠 어항 케이스 (LED 팬 4개 기본 장착)td
+                    tr
+                    tr
+                        td파워td
+                        td700W 80 PLUS Bronzetd
+                    tr
+                    tr
+                        td운영체제td
+                        tdWindows 11 Home (정품 인증 완료, 옵션 선택 가능)td
+                    tr
+                    tr
+                        tdAS 정책td
+                        td3년 무상  7년 유상 AStd
+                    tr
+                tbody
+            table
+        section
+
+        footer style=text-align center; padding 30px 20px; font-size 0.95em; color #888888; border-top 1px solid #e0e0e0; background-color #ffffff;
+            p아리젠 PC  고객 만족을 최우선으로 합니다.p
+            p문의 contact@arispc.com  © 2025 ARIZEN PC. All rights reserved.p
+        footer
+
+    div
+body
+html
